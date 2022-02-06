@@ -84,7 +84,9 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div>
+      <div className="sidebarBorder" />
+
+      <div className="sidebarAllTabPanel">
         <TabPanel value={value} index={0}>
           Item One
         </TabPanel>

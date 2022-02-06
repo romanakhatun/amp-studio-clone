@@ -1,18 +1,19 @@
 @import "../variables";
 
 .sidebar {
-  background: $primary-color;
   width: 60%;
   height: 100%;
   position: fixed;
   display: flex;
+  background: $primary-color;
 
   &Nav {
-    width: 25vw;
+    width: 115px;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: $primary-color;
 
     .sidebarLogo {
       display: flex;
@@ -60,5 +61,14 @@
         border-radius: 50%;
       }
     }
+  }
+
+  &Border {
+    width: 1px;
+    background-color: $border-color;
+  }
+
+  &AllTabPanel {
+    // background: $primary-color;
   }
 }
