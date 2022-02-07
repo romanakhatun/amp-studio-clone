@@ -1,7 +1,11 @@
 import React from "react";
 
 const Media = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Media </h1>
+    </div>
+  );
 };
 
 export default Media;
