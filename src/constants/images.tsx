@@ -1,7 +1,5 @@
 import logo from "../assets/logo.png";
 
-const images = {
+export const Images = {
   logo,
 };
-
-export default images;

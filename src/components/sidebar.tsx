@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "@mui/material";
-import { IoColorPaletteSharp, IoText } from "react-icons/io5";
-import { MdPhotoCamera } from "react-icons/md";
-import { FaSmile, FaQuestion } from "react-icons/fa";
-import { HiShare, HiTemplate } from "react-icons/hi";
+import { FaQuestion } from "react-icons/fa";
+import { Images } from "../constants/images";
+import { NavData } from "../constants/config";
 import TabPanel from "./tabpanel";
-import images from "../constants/images";
 import "../styles/components/sidebar.scss";
+
+interface NavDataType {
+  index: number;
+  label: string;
+  icon: any;
+}
 
 const Sidebar = () => {
   const [value, setValue] = useState(0);
@@ -26,7 +30,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarNav">
         <div className="sidebarLogo">
-          <img src={images?.logo} alt="logo" />
+          <img src={Images?.logo} alt="logo" />
         </div>
 
         <Tabs
@@ -41,42 +45,16 @@ const Sidebar = () => {
             },
           }}
         >
-          <Tab
-            className="sidebarTab"
-            icon={<HiTemplate />}
-            label="Templates"
-            {...a11yProps(0)}
-          />
-          <Tab
-            className="sidebarTab"
-            icon={<IoColorPaletteSharp />}
-            label="Background"
-            {...a11yProps(1)}
-          />
-          <Tab
-            className="sidebarTab"
-            icon={<IoText />}
-            label="Text"
-            {...a11yProps(2)}
-          />
-          <Tab
-            className="sidebarTab"
-            icon={<MdPhotoCamera />}
-            label="Media"
-            {...a11yProps(3)}
-          />
-          <Tab
-            className="sidebarTab"
-            icon={<FaSmile />}
-            label="Objects"
-            {...a11yProps(4)}
-          />
-          <Tab
-            className="sidebarTab"
-            icon={<HiShare />}
-            label="Sharing"
-            {...a11yProps(5)}
-          />
+          {NavData &&
+            NavData.map((nav: NavDataType) => (
+              <Tab
+                key={nav.index}
+                className="sidebarTab"
+                icon={nav?.icon}
+                label={nav?.label}
+                {...a11yProps(nav?.index)}
+              />
+            ))}
         </Tabs>
 
         <div className="sidebarQuestion">
